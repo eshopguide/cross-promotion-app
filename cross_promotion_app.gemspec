@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.push File.expand_path('lib', __dir__)
-require 'cross_promotion_banner/version'
+require 'cross_promotion_app/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'cross_promotion_banner'
-  spec.version = CrossPromotionBanner::VERSION
+  spec.name = 'cross_promotion_app'
+  spec.version = CrossPromotionApp::VERSION
   spec.licenses = ['Nonstandard']
   spec.authors = ['Eshop Guide GmbH']
   spec.email = ['info@eshop-guide.de']
-  spec.homepage = 'https://github.com/eshopguide/eg-cross-promotion-banner'
-  spec.summary = 'Eshop Guide cross promotion banner engine'
+  spec.homepage = 'https://github.com/eshopguide/cross-promotion-app'
+  spec.summary = 'Eshop Guide cross promotion banner app'
   spec.required_ruby_version = '>= 3.1.0'
 
   spec.metadata['homepage_uri'] = spec.homepage

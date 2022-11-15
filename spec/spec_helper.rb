@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'cross_promotion_banner'
+require 'cross_promotion_app'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

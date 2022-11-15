@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module CrossPromotionBanner
+module CrossPromotionApp
   class Engine < ::Rails::Engine
-    isolate_namespace CrossPromotionBanner
+    isolate_namespace CrossPromotionApp
   end
 end

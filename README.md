@@ -1,18 +1,12 @@
-# Eg::Cross::Promotion::Banner
+# Eshop Guide Cross Promotion App
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/eg/cross/promotion/banner`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Rails Gem to integrate Eshop Guide cross promotion banners to the admin interface of other shopify apps. 
 
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add eg-cross-promotion-banner
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install eg-cross-promotion-banner
+TODO: Write installation instructions here
 
 ## Usage
 
@@ -20,10 +14,12 @@ TODO: Write usage instructions here
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bundle install` to install dependencies. Set up the database with `bin/rails db:setup`.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To see changes in gem development immediately, install the gem in local running app.
+Open a console and set the local gem path with `bundle config local.eg_cross_promotion_app /path/to/eg-cross-promotion-app`.
+Add `gem 'eg_cross_promotion_app', github: 'eshopguide/cross-promotion-app', branch: 'main'` to the projects Gemfile and run `bundle install`.
 
-## Contributing
+## Release
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/eg-cross-promotion-banner.
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag.

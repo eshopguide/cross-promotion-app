@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module CrossPromotionBanner
+module CrossPromotionApp
   class ApplicationController < ActionController::Base; end
 end

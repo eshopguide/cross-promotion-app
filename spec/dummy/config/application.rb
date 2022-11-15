@@ -13,7 +13,7 @@ require 'action_view/railtie'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-require 'cross_promotion_banner'
+require 'cross_promotion_app'
 
 module Dummy
   class Application < Rails::Application

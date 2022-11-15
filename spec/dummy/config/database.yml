@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: cross_promotion_banner_development
+  database: cross_promotion_app_development
   username: postgres
   password: postgres
 
 test:
   <<: *default
-  database: cross_promotion_banner_test
+  database: cross_promotion_app_test
   username: postgres
   password: postgres
