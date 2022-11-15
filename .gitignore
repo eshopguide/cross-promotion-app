@@ -6,6 +6,19 @@
 /pkg/
 /spec/reports/
 /tmp/
+/spec/dummy/log/*.log
+/spec/dummy/public/assets/*
+/spec/dummy/storage/*
+/spec/dummy/tmp/
 
 # rspec failure tracking
 .rspec_status
+
+# ignore secrets
+/spec/dummy/.env
+/spec/dummy/.env.development
+/spec/dummy/.env.test
+
+# ignore swap files
+/.idea
+/.idea/*

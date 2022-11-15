@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: cross_promotion_banner_development
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: cross_promotion_banner_test
+  username: postgres
+  password: postgres
