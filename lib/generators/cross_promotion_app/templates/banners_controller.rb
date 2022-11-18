@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CrossPromotionApp
-  class BannerController < ApplicationController
+  class BannersController < ApplicationController
     before_action :find_banner, only: :show
 
     def show; end
@@ -9,7 +9,7 @@ module CrossPromotionApp
     private
 
     def find_banner
-      @banner = Banner.first
+      @banner = CrossPromotionApp::Banner.first
     end
   end
 end

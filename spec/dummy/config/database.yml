@@ -3,12 +3,6 @@ default: &default
   encoding: unicode
   pool: 5
 
-development:
-  <<: *default
-  database: cross_promotion_app_development
-  username: postgres
-  password: postgres
-
 test:
   <<: *default
   database: cross_promotion_app_test

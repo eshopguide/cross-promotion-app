@@ -1,0 +1,17 @@
+class CreateCrossPromotionAppBanners < ActiveRecord::Migration[<%= rails_migration_version %>]
+  def self.up
+    create_table :cross_promotion_app_banners do |t|
+      t.string :name
+      t.string :link
+      t.boolean :dismissible, default: true
+      t.boolean :active, default: false
+      t.timestamps
+    end
+
+    add_index :cross_promotion_app_banners, :name, unique: true
+  end
+
+  def self.down
+    drop_table :cross_promotion_app_banners
+  end
+end
