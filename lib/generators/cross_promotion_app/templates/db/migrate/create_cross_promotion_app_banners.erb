@@ -1,6 +1,6 @@
 class CreateCrossPromotionAppBanners < ActiveRecord::Migration[<%= rails_migration_version %>]
   def self.up
-    create_table :cross_promotion_app_banners do |t|
+    create_table :cross_promotion_app_banners, if_not_exists: true do |t|
       t.string :name
       t.string :link
       t.boolean :dismissible, default: true
@@ -8,7 +8,7 @@ class CreateCrossPromotionAppBanners < ActiveRecord::Migration[<%= rails_migrati
       t.timestamps
     end
 
-    add_index :cross_promotion_app_banners, :name, unique: true
+    add_index :cross_promotion_app_banners, :name, unique: true, if_not_exists: true
   end
 
   def self.down

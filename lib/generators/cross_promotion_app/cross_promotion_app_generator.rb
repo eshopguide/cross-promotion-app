@@ -24,7 +24,7 @@ module CrossPromotionApp
 
       def create_banner
         copy_file('images/b2b_banner.png', 'app/assets/images/b2b_banner.png')
-        rake('cross_promotion_app:banner:create')
+        rake('cross_promotion_app:create_banner')
         remove_file('app/assets/images/b2b_banner.png')
       end
 
@@ -32,16 +32,20 @@ module CrossPromotionApp
         route("mount CrossPromotionApp::Engine, at: '/'")
       end
 
-      def create_banner_controller
-        copy_file('banners_controller.rb', 'app/controllers/cross_promotion_app/banners_controller.rb')
+      def add_banner_to_authentication_controller
+        inject_into_file('app/controllers/authenticated_controller.rb', after: 'include ShopifyApp::Authenticated') do
+          "\n  include CrossPromotionApp::FindBanner"
+        end
       end
 
-      def add_banner_show_route
-        route("get '/banner' => 'cross_promotion_app/banners#show'")
+      def add_banner_to_layout
+        inject_into_file('app/views/layouts/embedded_app.html.erb', after: '<div class="app-content">') do
+          "\n        <%= render 'cross_promotion_app/banner' %>"
+        end
       end
 
-      def create_banner_show_view
-        template('show.html.erb', 'app/views/cross_promotion_app/banners/show.html.erb')
+      def create_banner_view
+        copy_file('views/_banner.html.erb', 'app/views/cross_promotion_app/_banner.html.erb')
       end
 
       private

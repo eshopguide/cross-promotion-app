@@ -6,6 +6,8 @@ module CrossPromotionApp
     validates :name, :link, presence: true
     validate :image_type
 
+    scope :active, -> { where(active: true) }
+
     private
 
     def image_type
