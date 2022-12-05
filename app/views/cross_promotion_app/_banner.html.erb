@@ -1,0 +1,7 @@
+<div id="cross-promotion-banner" style="position: relative">
+  <% if @cross_promotion_banner %>
+    <a href=<%= @cross_promotion_banner.link %> target="_blank">
+      <%= image_tag main_app.url_for(@cross_promotion_banner.image), style: 'width: 100%; height: 100px; object-fit: cover' %>
+    </a>
+  <% end %>
+</div>

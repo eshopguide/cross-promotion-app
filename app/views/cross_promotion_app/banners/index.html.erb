@@ -1,0 +1,47 @@
+<div id='cpa-index-page'>
+  <%= polaris_page(title: t('general.banners_tab_title')) do |page| %>
+    <% page.primary_action(url: cross_promotion_app.banners_new_path, icon_name: 'CirclePlusMajor') { I18n.t('views.index.actions.new') } %>
+    <%= polaris_spacer(vertical: :base) %>
+
+    <%= polaris_layout(classes: "cpa-banners") do |layout| %>
+      <% layout.section(one_half: true) do %>
+        <div id='cpa-banners-list'>
+          <% @banners.each do |banner| %>
+            <%= polaris_card do %>
+              <h2 as="h2" class="Polaris-Heading">
+                <div class="cpa_banner-header">
+                  <div class="cpa_banner-header-name">
+                    <%= banner.name %>
+                    <% if banner.active %>
+                      <%= polaris_spacer(horizontal: :base) %>
+                      <%= polaris_badge(status: :success) { I18n.t('views.index.badges.active') } %>
+                    <% end %>
+                  </div>
+                  <div class="cpa_banner-header-actions">
+                    <% if banner.active %>
+                      <%= polaris_button(url: cross_promotion_app.banners_deactivate_path(banner), plain: true) { I18n.t('views.index.actions.deactivate') } %>
+                    <% else %>
+                      <%= polaris_button(url: cross_promotion_app.banners_activate_path(banner), plain: true) { I18n.t('views.index.actions.activate') } %>
+                    <% end %>
+                    <%= polaris_spacer(horizontal: :base) %>
+                    <%= polaris_button(url: cross_promotion_app.banners_edit_path(banner), plain: true) { I18n.t('views.index.actions.edit') } %>
+                    <%= polaris_spacer(horizontal: :base) %>
+                    <%= polaris_button(url: cross_promotion_app.banners_destroy_path(banner), plain: true) { I18n.t('views.index.actions.destroy') } %>
+                  </div>
+                </div>
+              </h2>
+              <%= polaris_spacer(vertical: :base) %>
+
+              <div class="cpa-banner">
+                <a href=<%= banner.link %> target="_blank">
+                  <%= image_tag main_app.url_for(banner.image) %>
+                </a>
+              </div>
+            <% end %>
+            <%= polaris_spacer(vertical: :base) %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

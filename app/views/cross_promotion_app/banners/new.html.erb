@@ -1,0 +1,24 @@
+<div class='cpa-new-page'>
+  <%= polaris_page(title: I18n.t('views.new.title')) do %>
+    <%= form_with(model: [:cross_promotion_app, @banner], url: cross_promotion_app.banners_create_path, builder: Polaris::FormBuilder) do |form| %>
+      <%= polaris_spacer(vertical: :base) %>
+
+      <%= polaris_form_layout do |form_layout| %>
+        <% form_layout.item do %>
+          <%= form.polaris_text_field(:name, value: @banner.name, placeholder: I18n.t('views.new.placeholders.name')) %>
+        <% end %>
+        <% form_layout.item do %>
+          <%= form.polaris_text_field(:link, value: @banner.link, placeholder: I18n.t('views.new.placeholders.link')) %>
+        <% end %>
+        <% form_layout.item do %>
+          <%= form.polaris_dropzone(:image, label: I18n.t('views.new.labels.image'), label_hidden: false, multiple: false) %>
+        <% end %>
+      <% end %>
+
+      <%= polaris_page_actions do |actions| %>
+        <% actions.primary_action(submit: true) { I18n.t('views.new.actions.submit') } %>
+        <% actions.secondary_action(url: cross_promotion_app.banners_index_path) { I18n.t('views.new.actions.cancel') } %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

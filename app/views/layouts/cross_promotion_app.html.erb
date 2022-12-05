@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= CrossPromotionApp %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'cross_promotion_app' %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_import_module_tag 'cross_promotion_app/application' %>
+
+    <link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@6.6.0/dist/styles.css" />
+    <%= stylesheet_link_tag 'polaris_view_components' %>
+  </head>
+
+  <body style="<%= polaris_body_styles %>">
+    <div class="app-wrapper">
+      <div class="app-content">
+        <main role="main">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+
+    <%= render 'layouts/flash_messages' %>
+
+    <% if content_for?(:javascript) %>
+      <div id="ContentForJavascript" data-turbolinks-temporary>
+        <%= yield :javascript %>
+      </div>
+    <% end %>
+  </body>
+</html>

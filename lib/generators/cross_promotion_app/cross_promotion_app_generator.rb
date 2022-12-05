@@ -9,16 +9,12 @@ module CrossPromotionApp
       include Rails::Generators::Migration
       source_root File.expand_path('templates', __dir__)
 
-      def create_banner_model
-        copy_file('banner.rb', 'app/models/cross_promotion_app/banner.rb')
-      end
-
-      def create_banner_migration
-        migration_template('db/migrate/create_cross_promotion_app_banners.erb',
-                           'db/migrate/create_cross_promotion_app_banners.rb')
+      def mount_engine
+        route("mount CrossPromotionApp::Engine, at: '/cross_promotion_app'")
       end
 
       def migrate_db
+        rake('cross_promotion_app:install:migrations')
         rake('db:migrate')
       end
 
@@ -26,10 +22,6 @@ module CrossPromotionApp
         copy_file('images/b2b_banner.png', 'app/assets/images/b2b_banner.png')
         rake('cross_promotion_app:create_banner')
         remove_file('app/assets/images/b2b_banner.png')
-      end
-
-      def mount_engine
-        route("mount CrossPromotionApp::Engine, at: '/'")
       end
 
       def add_banner_to_authentication_controller
@@ -42,10 +34,6 @@ module CrossPromotionApp
         inject_into_file('app/views/layouts/embedded_app.html.erb', after: '<div class="app-content">') do
           "\n        <%= render 'cross_promotion_app/banner' %>"
         end
-      end
-
-      def create_banner_view
-        copy_file('views/_banner.html.erb', 'app/views/cross_promotion_app/_banner.html.erb')
       end
 
       private

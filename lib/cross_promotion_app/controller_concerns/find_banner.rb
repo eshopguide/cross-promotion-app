@@ -10,7 +10,7 @@ module CrossPromotionApp
       private
 
       def find_cross_promotion_banner
-        @cross_promotion_banner = CrossPromotionApp::Banner.active.first
+        @cross_promotion_banner ||= CrossPromotionApp::Banner.where(active: true).first
       end
     end
   end

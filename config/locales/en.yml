@@ -1,1 +1,53 @@
 en:
+  activerecord:
+    attributes:
+      cross_promotion_app/banner:
+        name: 'Banner name'
+        link: 'Link'
+        image: "Image"
+  cross_promotion_app:
+    banners:
+      create:
+        success: 'Banner created successfully.'
+        error: 'Banner could not be created.'
+      update:
+        success: 'Banner updated successfully.'
+        error: 'Banner could not be updated.'
+      activate:
+        success: 'Banner activated successfully.'
+        error: 'Banner could not be activated.'
+      deactivate:
+        success: 'Banner deactivated successfully.'
+        error: 'Banner could not be deactivated.'
+      destroy:
+        success: 'Banner deleted successfully.'
+  views:
+    index:
+      badges:
+        active: 'Active Banner'
+      actions:
+        edit: 'Edit'
+        destroy: 'Delete'
+        new: 'Add new Banner'
+        activate: 'Activate'
+        deactivate: 'Deactivate'
+    new:
+      title: 'Add new Banner'
+      placeholders:
+        name: 'Name'
+        link: 'https://'
+      labels:
+        image: 'Image (Content-Type: PNG or SVG, Recommended Size: 1140x100)'
+      actions:
+        submit: 'Create banner'
+        cancel: 'Cancel'
+    edit:
+      title: "Edit banner '%{name}'"
+      placeholders:
+        name: 'Name'
+        link: 'https://'
+      labels:
+        image: "Image (current: '%{filename}') (Content-Type: PNG or SVG, Recommended Size: 1140x100)"
+      actions:
+        submit: 'Update banner'
+        cancel: 'Cancel'
