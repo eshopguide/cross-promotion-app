@@ -5,11 +5,11 @@ module CrossPromotionApp
     extend ActiveSupport::Concern
 
     included do
-      before_action :find_cross_promotion_banner
+      before_action :cross_promotion_banner
 
       private
 
-      def find_cross_promotion_banner
+      def cross_promotion_banner
         @cross_promotion_banner ||= CrossPromotionApp::Banner.where(active: true).first
       end
     end

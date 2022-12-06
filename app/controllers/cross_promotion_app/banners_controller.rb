@@ -3,9 +3,10 @@
 module CrossPromotionApp
   class BannersController < ApplicationController
     protect_from_forgery with: :null_session
+    layout 'cross_promotion_app'
+
     before_action :authenticate
     before_action :find_banner, only: %i[edit update activate deactivate destroy]
-    layout 'cross_promotion_app'
 
     # GET /cross_promotion_app
     def index
@@ -16,6 +17,9 @@ module CrossPromotionApp
     def new
       @banner = CrossPromotionApp::Banner.new
     end
+
+    # POST /cross_promotion_app/banners
+    def edit; end
 
     # GET /cross_promotion_app/banners/:id/edit
     def create
@@ -31,9 +35,6 @@ module CrossPromotionApp
         end
       end
     end
-
-    # POST /cross_promotion_app/banners
-    def edit; end
 
     # POST /cross_promotion_app/banners/:id
     def update

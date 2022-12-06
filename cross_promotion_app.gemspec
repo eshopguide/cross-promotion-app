@@ -16,13 +16,13 @@ Gem::Specification.new do |spec|
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['rubygems_mfa_required'] = 'true'
 
+  spec.files = Dir['{app,config,db,lib}/**/*', 'Rakefile', 'README.md']
 
+  spec.add_dependency 'activestorage', '~> 7.0'
   spec.add_dependency 'importmap-rails', '~> 1.1'
-  spec.add_dependency 'jbuilder', '~> 2.11'
   spec.add_dependency 'pg', '~> 1.1'
   spec.add_dependency 'polaris_view_components', '~> 0.11'
   spec.add_dependency 'rails', '~> 7.0'
-  spec.add_dependency 'sprockets-rails', '~> 3.4'
   spec.add_dependency 'stimulus-rails', '~> 1.1'
   spec.add_dependency 'turbo-rails', '~> 1.1'
 
@@ -33,5 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rails', '~> 2.17'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.15'
   spec.add_development_dependency 'simplecov', '~> 0.21'
-  spec.add_development_dependency('sqlite3', '~> 1.4')
+  spec.add_development_dependency 'sqlite3', '~> 1.4'
 end

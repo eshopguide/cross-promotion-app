@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <title><%= CrossPromotionApp %></title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'cross_promotion_app' %>
-    <%= javascript_importmap_tags %>
-    <%= javascript_import_module_tag 'cross_promotion_app/application' %>
-
+    <%= stylesheet_link_tag 'cross_promotion_app/application', media: "all", "data-turbo-track": "reload"  %>
     <link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@6.6.0/dist/styles.css" />
     <%= stylesheet_link_tag 'polaris_view_components' %>
+
+    <!-- TODO: Fix import helpers and use helper method instead. -->
+    <%= safe_join [javascript_inline_importmap_tag(CrossPromotionApp.configuration.importmap.to_json(resolver: self)),
+                   javascript_importmap_module_preload_tags(CrossPromotionApp.configuration.importmap),
+                   (javascript_importmap_shim_nonce_configuration_tag), (javascript_importmap_shim_tag),
+                   javascript_import_module_tag('application')].compact, "\n" %>
   </head>
 
   <body style="<%= polaris_body_styles %>">
@@ -21,13 +25,5 @@
         </main>
       </div>
     </div>
-
-    <%= render 'layouts/flash_messages' %>
-
-    <% if content_for?(:javascript) %>
-      <div id="ContentForJavascript" data-turbolinks-temporary>
-        <%= yield :javascript %>
-      </div>
-    <% end %>
   </body>
 </html>

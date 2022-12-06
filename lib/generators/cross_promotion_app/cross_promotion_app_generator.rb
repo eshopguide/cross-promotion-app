@@ -36,6 +36,10 @@ module CrossPromotionApp
         end
       end
 
+      def add_basic_auth_credentials
+        append_to_file('.env', "\n\nCROSS_PROMOTION_USER=eg-admin\nCROSS_PROMOTION_PASSWORD=#{SecureRandom.hex(10)}")
+      end
+
       private
 
       def rails_migration_version
