@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jbuilder', '~> 2.11'
   spec.add_dependency 'pg', '~> 1.1'
   spec.add_dependency 'polaris_view_components', '~> 0.11'
-  spec.add_dependency 'rails', '~> 7.0.0'
+  spec.add_dependency 'rails', '~> 7.0'
   spec.add_dependency 'sprockets-rails', '~> 3.4'
   spec.add_dependency 'stimulus-rails', '~> 1.1'
   spec.add_dependency 'turbo-rails', '~> 1.1'
