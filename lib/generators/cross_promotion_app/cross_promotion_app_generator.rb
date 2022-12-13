@@ -25,19 +25,34 @@ module CrossPromotionApp
       end
 
       def add_banner_to_authentication_controller
-        inject_into_file('app/controllers/authenticated_controller.rb', after: 'include ShopifyApp::Authenticated') do
-          "\n  include CrossPromotionApp::FindBanner"
+        if File.exist?('app/controllers/authenticated_controller.rb')
+          inject_into_file('app/controllers/authenticated_controller.rb', after: 'include ShopifyApp::Authenticated') do
+            "\n  include CrossPromotionApp::FindBanner"
+          end
+        else
+          p '    Error: AuthenticatedController not found. Please include the following line manually to your controllers: include CrossPromotionApp::FindBanner'
         end
       end
 
       def add_banner_to_layout
-        inject_into_file('app/views/layouts/embedded_app.html.erb', after: '<div class="app-content">') do
-          "\n        <%= render 'cross_promotion_app/banner' %>"
+        if File.readlines('app/views/layouts/embedded_app.html.erb').grep(/<div class="app-content">/).any?
+          inject_into_file('app/views/layouts/embedded_app.html.erb', after: '<div class="app-content">') do
+            "\n        <%= render 'cross_promotion_app/banner' %>"
+          end
+        else
+          p '    Error: Please add manually the following line to your layout: <%= render "cross_promotion_app/banner" %>'
         end
       end
 
       def add_basic_auth_credentials
-        append_to_file('.env', "\n\nCROSS_PROMOTION_USER=eg-admin\nCROSS_PROMOTION_PASSWORD=#{SecureRandom.hex(10)}")
+        file = File.exist?('.env') ? '.env' : '.env.development'
+        unless File.readlines(file).grep(/CROSS_PROMOTION_USER/).any?
+          append_to_file(file, "\n\nCROSS_PROMOTION_USER=eg-admin\nCROSS_PROMOTION_PASSWORD=#{SecureRandom.hex(10)}")
+        end
+
+        return unless File.exist?('.env.sample') && File.readlines(file).grep(/CROSS_PROMOTION_USER/).none?
+
+        append_to_file('.env.sample', "\n\nCROSS_PROMOTION_USER=\nCROSS_PROMOTION_PASSWORD=}")
       end
 
       private

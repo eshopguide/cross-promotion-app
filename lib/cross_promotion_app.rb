@@ -14,7 +14,7 @@ module CrossPromotionApp
     attr_accessor :importmap
 
     def initialize
-      @importmap = Importmap::Map.new
+      @importmap = Importmap::Map.new if CrossPromotionApp.use_importmap?
     end
   end
 
@@ -25,6 +25,23 @@ module CrossPromotionApp
   def self.configure
     init_config
     yield(configuration)
+  end
+
+  def self.use_importmap?
+    File.exist?('config/importmap.rb')
+  end
+
+  def self.use_webpacker?
+    defined?(Webpacker) == 'constant'
+  end
+
+  def self.webpacker
+    return unless CrossPromotionApp.use_webpacker?
+
+    @Webpacker ||= ::Webpacker::Instance.new(
+      root_path: CrossPromotionApp::Engine.root,
+      config_path: CrossPromotionApp::Engine.root.join('config', 'webpacker.yml')
+    )
   end
 end
 

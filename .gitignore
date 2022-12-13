@@ -11,6 +11,9 @@
 /spec/dummy/storage/*
 /spec/dummy/tmp/
 
+node_modules/
+public/packs-test/
+
 # rspec failure tracking
 .rspec_status
 

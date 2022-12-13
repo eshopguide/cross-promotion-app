@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '~> 7.0'
   spec.add_dependency 'stimulus-rails', '~> 1.1'
   spec.add_dependency 'turbo-rails', '~> 1.1'
+  spec.add_dependency 'webpacker', '~> 5.2.1'
 
   spec.add_development_dependency 'dotenv-rails', '~> 2.8'
   spec.add_development_dependency 'factory_bot', '~> 6.2'
