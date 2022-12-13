@@ -20,7 +20,7 @@ module CrossPromotionApp
     initializer 'webpack.proxy' do |app|
       insert_middleware = begin
         CrossPromotionApp.webpacker.config.dev_server.present?
-      rescue
+      rescue StandardError
         nil
       end
       next unless insert_middleware

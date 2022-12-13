@@ -30,7 +30,7 @@ module CrossPromotionApp
             "\n  include CrossPromotionApp::FindBanner"
           end
         else
-          p '    Error: AuthenticatedController not found. Please include the following line manually to your controllers: include CrossPromotionApp::FindBanner'
+          p '    Error: AuthenticatedController not found. Please include the following line manually to your controllers: include CrossPromotionApp::FindBanner' # rubocop:disable Layout/LineLength
         end
       end
 
@@ -40,7 +40,7 @@ module CrossPromotionApp
             "\n        <%= render 'cross_promotion_app/banner' %>"
           end
         else
-          p '    Error: Please add manually the following line to your layout: <%= render "cross_promotion_app/banner" %>'
+          p '    Error: Please add manually the following line to your layout: <%= render "cross_promotion_app/banner" %>' # rubocop:disable Layout/LineLength
         end
       end
 

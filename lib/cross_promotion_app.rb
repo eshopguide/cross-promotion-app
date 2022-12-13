@@ -38,7 +38,7 @@ module CrossPromotionApp
   def self.webpacker
     return unless CrossPromotionApp.use_webpacker?
 
-    @Webpacker ||= ::Webpacker::Instance.new(
+    @webpacker ||= ::Webpacker::Instance.new(
       root_path: CrossPromotionApp::Engine.root,
       config_path: CrossPromotionApp::Engine.root.join('config', 'webpacker.yml')
     )

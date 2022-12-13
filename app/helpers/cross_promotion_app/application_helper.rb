@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "webpacker/helper"
+require 'webpacker/helper'
 
-module Saddlebag
+module CrossPromotionApp
   module ApplicationHelper
     include ::Webpacker::Helper
 
     def current_webpacker_instance
-      Saddlebag.webpacker
+      CrossPromotionApp.webpacker
     end
   end
 end
