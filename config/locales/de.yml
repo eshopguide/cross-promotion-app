@@ -2,7 +2,7 @@ de:
   activerecord:
     attributes:
       cross_promotion_app/banner:
-        name: 'Name'
+        name: 'Bannerbezeichnung'
         link: 'Link'
         image: 'Bild'
     errors:
@@ -12,6 +12,7 @@ de:
           format: 'muss ein png oder svg sein.'
   views:
     index:
+      title: 'Cross Promotion Banners'
       badges:
         active: 'Aktives Banner'
       actions:

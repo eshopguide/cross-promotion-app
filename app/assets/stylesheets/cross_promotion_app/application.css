@@ -1,16 +1,111 @@
-#cpa-banners-list .cpa_banner-header {
-  display: flex;
-  justify-content: space-between
+.cpa-wrapper {
+  width: 60%;
+  margin: 20px auto;
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;;
 }
 
-#cpa-banners-list .cpa_banner-header-name,
-#cpa-banners-list .cpa_banner-header-actions {
-  display: inline-flex
+.cpa-header, .cpa_banner-header {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-#cpa-banners-list .cpa-banner img,
-#cpa-edit-page .cpa-banner img{
+.cpa-header {
+  margin-bottom: 40px;
+}
+
+.cpa_banner-header h2 {
+  display: inline-flex;
+}
+
+.cpa-batch {
+  display: inline-flex;
+  margin-left: 1.7rem;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 123, 92, 1);
+  border-radius: 0.5rem;
+  color: rgba(0, 123, 92, 1);
+}
+
+.cpa-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.cpa-btn-primary {
+  background-color: rgba(0, 128, 96, 1);
+  border: none;
+  color: #fff;
+}
+
+.cpa-btn-destructive {
+  background-color: rgba(255, 0, 0, 1);
+  border: none;
+  color: #fff;
+}
+
+#cpa-index .cpa-banner-wrapper {
+  margin-bottom: 40px;
+  padding: 10px 20px;
+  background-color: rgba(246, 246, 247, 1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#cpa-index .cpa-banner img,
+#cpa-edit .cpa-banner img{
   width: 100%;
   height: 100px;
+  margin-bottom: 20px;
   object-fit: cover
+}
+
+.cpa-form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(246, 246, 247, 1);
+}
+
+.cpa-form .cpa-form__group {
+  margin-bottom: 30px;
+}
+
+.cpa-form .cpa-form__group label {
+  display: inline-block;
+  margin: 0 0 5px 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cpa-form .cpa-form__group input {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.cpa-form__error {
+  margin: 5px 0 0 5px;
+  color: rgba(255, 0, 0, 1);
+}
+
+.cpa-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

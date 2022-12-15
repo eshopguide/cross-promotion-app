@@ -19,11 +19,8 @@ Gem::Specification.new do |spec|
   spec.files = Dir['{app,config,db,lib}/**/*', 'Rakefile', 'README.md']
 
   spec.add_dependency 'activestorage', '~> 7.0'
-  spec.add_dependency 'importmap-rails', '~> 1.1'
   spec.add_dependency 'pg', '~> 1.1'
-  spec.add_dependency 'polaris_view_components', '~> 0.11'
   spec.add_dependency 'rails', '~> 7.0'
-  spec.add_dependency 'stimulus-rails', '~> 1.1'
   spec.add_dependency 'turbo-rails', '~> 1.1'
 
   spec.add_development_dependency 'dotenv-rails', '~> 2.8'
