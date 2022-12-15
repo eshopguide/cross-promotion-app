@@ -43,6 +43,10 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Enabled: false
 
+Rails/Output:
+  Exclude:
+    - 'lib/generators/**/*'
+
 Style/Documentation:
   Enabled: false
 

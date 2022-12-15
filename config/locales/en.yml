@@ -23,6 +23,7 @@ en:
         success: 'Banner deleted successfully.'
   views:
     index:
+      title: 'Cross Promotion Banners'
       badges:
         active: 'Active Banner'
       actions:
