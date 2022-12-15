@@ -12,7 +12,7 @@ A Rails Gem to integrate Eshop Guide cross promotion banners to the admin interf
 
 Add the gem to the application's Gemfile and run `bundle install`:
 ```ruby
-gem 'cross_promotion_app', github: 'eshopguide/cross-promotion-app', '<Version>'
+gem 'cross_promotion_app', '<Version>', github: 'eshopguide/cross-promotion-app'
 ```
 
 Run the generator to install the migrations and assets:
@@ -84,7 +84,6 @@ git tag -a v<version> -m "Version <version>"
 ```bash
 git push --tags
 ```
-
 
 To create a new release from tag use the Github UI (see https://github.com/eshopguide/cross-promotion-app/releases)
 or the command line tools (see https://cli.github.com/manual/gh_release_create).
