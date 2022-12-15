@@ -2,19 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>CrossPromotionApp</title>
+    <title>Dummy App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'cross_promotion_app/application', media: "all", "data-turbo-track": "reload"  %>
+    <%= stylesheet_link_tag 'application', media: "all", "data-turbo-track": "reload"  %>
   </head>
 
   <body>
     <div class="app-wrapper">
       <div class="app-content">
-        <main role="main">
-          <%= yield %>
-        </main>
+        <%= render "cross_promotion_app/banner" %>
+        <%= yield %>
       </div>
     </div>
   </body>

@@ -5,10 +5,11 @@ A Rails Gem to integrate Eshop Guide cross promotion banners to the admin interf
 ## Dependencies && Requirements
 * Ruby >=3.1
 * Rails >=7.0
+* Make sure active storage is installed and configured. Run: ```rails active_storage:install```
 * NOTE: the app is designed to work with shopify apps that are build with the [shopify-rails-template](https://github.com/eshopguide/shopify_rails_template).
   For use in older apps see the [Special notes for legacy apps](#special-notes-for-legacy-apps) section.
 
-## Installation
+## Install the gem in your host application
 
 Add the gem to the application's Gemfile and run `bundle install`:
 ```ruby
@@ -42,14 +43,17 @@ rails active_storage:install
   <%= render 'cross_promotion_app/banner' %>
 ```
 
-## Usage
-The app is a Rails engine and can be mounted in any Rails app. The engine is namespaced under 'cross_promotion_app' and the root path is '/cross_promotion_app'.
+4. Check your .env file for the HOST_NAME key and add it if it's missing:
+```ruby
+HOST_NAME=<host_name>
+```
 
-Start the local server and visit `https://<LOCAL_NGROK_HOST_NAME>/cross_promotion_app` to see the app in action.
+## Host Application Deployment
+Before deploying your host application to staging/production make sure to add the new secrets.
 
-After deploying your host application to staging/production, visit `https://<HEROKU_APP_HOST_NAME>/cross_promotion_app` to see the app in action.
+After deploying visit `https://<HEROKU_APP_HOST_NAME>/cross_promotion_app` to see the app in action.
 
-## Development
+## Gem Development
 After checking out the cross-promotion-app repo, install dependencies and set up the database:
 ```bash
 bundle install

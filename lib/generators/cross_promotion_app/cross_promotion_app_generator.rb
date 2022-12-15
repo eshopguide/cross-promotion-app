@@ -49,9 +49,9 @@ module CrossPromotionApp
         unless File.readlines(file).grep(/CROSS_PROMOTION_USER/).any?
           append_to_file(file, "\n\nCROSS_PROMOTION_USER=eg-admin\nCROSS_PROMOTION_PASSWORD=#{SecureRandom.hex(10)}")
         end
-  
+
         return unless File.exist?('.env.sample') && File.readlines(file).grep(/CROSS_PROMOTION_USER/).none?
-  
+
         append_to_file('.env.sample', "\n\nCROSS_PROMOTION_USER=\nCROSS_PROMOTION_PASSWORD=}")
       end
 
