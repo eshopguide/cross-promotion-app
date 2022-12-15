@@ -1,0 +1,19 @@
+name: Code review
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+          fetch-depth: 0
+
+      - uses: adwerx/pronto-ruby@v4.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUBOCOP_CONFIG: .rubocop.yml
+        with:
+          target: origin/main
+          runners: >-
+            brakeman rails_best_practices rails_schema rubocop
