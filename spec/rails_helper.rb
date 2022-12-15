@@ -10,16 +10,14 @@ require 'capybara/rspec'
 require 'capybara/cuprite'
 require 'cross_promotion_app'
 require 'database_cleaner'
-require 'factory_bot'
+require 'factory_bot_rails'
+require 'ffaker'
 require 'rspec/rails'
 require 'simplecov'
 require 'webmock/rspec'
 
-# The following line is provided for convenience purposes. It has the downside
-# of increasing the boot-up time by auto-requiring all files in the support
-# directory. Alternatively, in the individual `*_spec.rb` files, manually
-# require only the support files necessary.
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+# require helpers
+require 'support/login_helper'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -36,6 +34,11 @@ Capybara.default_driver = :rack_test
 Capybara.javascript_driver = :cuprite
 
 RSpec.configure do |config|
+  # If you're not using ActiveRecord, or you'd prefer not to run each of your
+  # examples within a transaction, remove the following line or assign false
+  # instead of true.
+  config.use_transactional_fixtures = true
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
