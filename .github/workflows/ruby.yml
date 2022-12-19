@@ -1,0 +1,63 @@
+---
+name: CI
+on: [push]
+
+env:
+  HOST: ${{ secrets.HOST }}
+  HOST_NAME: example.com
+  RAILS_ENV: test
+  CROSS_PROMOTION_USER: foo
+  CROSS_PROMOTION_PASSWORD: bar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout
+        uses: nschloe/action-checkout-with-lfs-cache@v1
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
+          bundler-cache: true
+          cache-version: 3
+
+      - name: Assets Cache
+        id: assets-cache
+        uses: actions/cache@v1
+        with:
+          path: public/packs-test
+          key: ${{ runner.os }}-assets-${{ steps.extract_branch.outputs.branch }}
+          restore-keys: |
+            ${{ runner.os }}-assets-
+
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
+
+      - name: Setup Database
+        run: |
+          cp spec/dummy/config/database.yml.github-actions spec/dummy/config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
+          bundle exec rake db:fixtures:load
+
+      - name: Compile Assets
+        run: |
+          if [[ ! -d public/packs-test ]]; then
+            cd spec/dummy && bundle exec rails assets:precompile
+          else
+            echo "No need to compile assets."
+          fi
+
+      - name: Run Specs
+        run: cd spec/dummy && bundle exec rspec

@@ -1,0 +1,8 @@
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: wetter_app_test
+  pool: 20
+  username: postgres
+  password: postgres
