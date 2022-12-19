@@ -10,6 +10,22 @@ de:
         messages:
           blank: 'darf nicht leer sein.'
           format: 'muss ein png oder svg sein.'
+  cross_promotion_app:
+    banners:
+      create:
+        success: 'Banner erstellt.'
+        error: 'Banner konnte nicht angelegt werden.'
+      update:
+        success: 'Banner aktualisiert.'
+        error: 'Banner konnte nicht aktualisiert werden.'
+      activate:
+        success: 'Banner aktiviert.'
+        error: 'Banner konnte nicht aktiviert werden.'
+      deactivate:
+        success: 'Banner deaktiviert.'
+        error: 'Banner konnte nicht deaktiviert werden.'
+      destroy:
+        success: 'Banner gelöscht.'
   views:
     index:
       title: 'Cross Promotion Banners'

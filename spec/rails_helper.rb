@@ -16,9 +16,6 @@ require 'rspec/rails'
 require 'simplecov'
 require 'webmock/rspec'
 
-# require helpers
-require 'support/login_helper'
-
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -32,6 +29,8 @@ end
 # Configure Capybara
 Capybara.default_driver = :rack_test
 Capybara.javascript_driver = :cuprite
+
+SimpleCov.start
 
 RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

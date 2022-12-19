@@ -5,6 +5,11 @@ en:
         name: 'Banner name'
         link: 'Link'
         image: "Image"
+    errors:
+      models:
+        messages:
+          blank: "can't be blank"
+          format: 'has to be png or svg.'
   cross_promotion_app:
     banners:
       create:
