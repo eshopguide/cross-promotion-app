@@ -6,6 +6,7 @@ A Rails Gem to integrate Eshop Guide cross promotion banners to the admin interf
 * Ruby >=3.1
 * Rails >=7.0
 * Make sure active storage is installed and configured. Run: ```rails active_storage:install```
+  * Dont forget to set up the storage cloud service for the production environment in config/storage.yml
 * NOTE: the app is designed to work with shopify apps that are build with the [shopify-rails-template](https://github.com/eshopguide/shopify_rails_template).
   For use in older apps see the [Special notes for legacy apps](#special-notes-for-legacy-apps) section.
 
