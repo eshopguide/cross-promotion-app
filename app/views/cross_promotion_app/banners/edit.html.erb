@@ -7,43 +7,7 @@
       <div class="cpa-banner"><%= image_tag main_app.url_for(@banner.image) %></div>
     <% end %>
 
-    <div class="cpa-form">
-      <%= form_with(model: [:cross_promotion_app, @banner], url: cross_promotion_app.banners_update_path) do |form| %>
-        <div class="cpa-form__group">
-          <%= form.label :name %>
-          <%= form.text_field :name, value: @banner.name, placeholder: t('views.new.placeholders.name') %>
-          <% if @banner.errors[:name] %>
-            <div class="cpa-form__error">
-              <%= @banner.errors[:name].first %>
-            </div>
-          <% end %>
-        </div>
+    <%= render 'form', url: cross_promotion_app.banners_update_path, action: 'edit' %>
 
-        <div class="cpa-form__group">
-          <%= form.label :link %>
-          <%= form.text_field :link, value: @banner.link, placeholder: t('views.new.placeholders.link') %>
-          <% if @banner.errors[:link] %>
-            <div class="cpa-form__error">
-              <%= @banner.errors[:link].first %>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="cpa-form__group">
-          <%= form.label :image, t('views.edit.labels.image', filename: @banner.image.blob.filename) %>
-          <%= form.file_field :image, class: 'cpa-btn' %>
-          <% if @banner.errors[:image] %>
-            <span class="cpa-form__error">
-              <%= @banner.errors[:image].first %>
-            </span>
-          <% end %>
-        </div>
-
-        <div class="cpa-form__actions">
-          <a class="cpa-btn cpa-btn-secondary" href="<%= cross_promotion_app.banners_index_path %>"><%= t('views.new.actions.cancel') %></a>
-          <%= form.submit t('views.edit.actions.submit'), class: "cpa-btn cpa-btn-primary" %>
-        </div>
-      <% end %>
-    </div>
   </div>
 </div>

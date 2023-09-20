@@ -5,7 +5,7 @@ module CrossPromotionApp
     protect_from_forgery with: :null_session
     layout 'cross_promotion_app'
 
-    before_action :authenticate
+    before_action :authenticate, except: %i[api]
     before_action :find_banner, only: %i[edit update activate deactivate destroy]
 
     # GET /cross_promotion_app
@@ -85,6 +85,11 @@ module CrossPromotionApp
       end
     end
 
+    # GET /api/banner
+    def api
+      render json: CrossPromotionApp::Banner.where(active: true).first&.as_json
+    end
+
     private
 
     def find_banner
@@ -92,7 +97,8 @@ module CrossPromotionApp
     end
 
     def banner_params
-      params.require(:banner).permit(:name, :link, :image, :active)
+      params.require(:banner).permit(:name, :link, :image, :active, :link_text_de, :link_text_en, :title_de, :title_en,
+                                     :text_de, :text_en, :cta_url, :cta_text_de, :cta_text_en, :video_id, :video_length)
     end
 
     def authenticate

@@ -11,4 +11,5 @@ CrossPromotionApp::Engine.routes.draw do
   get 'banners/:id/activate', to: 'banners#activate', as: 'banners_activate'
   get 'banners/:id/deactivate', to: 'banners#deactivate', as: 'banners_deactivate'
   get 'banners/:id/destroy', to: 'banners#destroy', as: 'banners_destroy'
+  get 'api/banner', to: 'banners#api'
 end

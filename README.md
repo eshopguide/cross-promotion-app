@@ -6,7 +6,8 @@ A Rails Gem to integrate Eshop Guide cross promotion banners to the admin interf
 * Ruby >=3.1
 * Rails >=7.0
 * Make sure active storage is installed and configured. Run: ```rails active_storage:install```
-  * Dont forget to set up the storage cloud service for the production environment in config/storage.yml
+  * Don't forget to set up the storage cloud service for the production environment in config/storage.yml and to set `config.active_storage.service` in the environment config
+* npm packages: `react, react-i18next, @shopify/app-bridge-react, @shopify/polaris`
 * NOTE: the app is designed to work with shopify apps that are build with the [shopify-rails-template](https://github.com/eshopguide/shopify_rails_template).
   For use in older apps see the [Special notes for legacy apps](#special-notes-for-legacy-apps) section.
 
@@ -22,6 +23,36 @@ Run the generator to install the migrations and assets:
 rails g cross_promotion_app
 ```
 
+Update your Vite config to be able to import the React `<CrossPromotionBanner />` component:
+```
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
+import { execSync } from 'child_process';
+
+const gemPath = execSync(`bundle show cross_promotion_app`, { encoding: 'utf-8' }).trim();
+
+export default defineConfig({
+  [...]
+  server: {
+    fs: {
+      allow: [
+        searchForWorkspaceRoot(process.cwd()),
+        gemPath
+      ]
+    }
+  },
+  resolve: {
+    alias: {
+      'cross-promotion-app': gemPath,
+    }
+  }
+})
+```
+
+Import the banner component in your React frontend:
+```
+import { CrossPromotionBanner } from 'cross-promotion-app';
+```
+
 Finally check or change the credentials for the basic auth in your .env file:
 ```ruby
 // CROSS_PROMOTION_APP
@@ -35,16 +66,8 @@ CROSS_PROMOTION_PASSWORD=<Password>
 ```bash
 rails active_storage:install
 ```
-2. If your App don't use an AuthenticatedController add the controller concern to find the banner to your admin ui controllers manually:
-```ruby
-  include CrossPromotionApp::FindBanner
-```
-3. Check your embedded_app.html.erb layout file and add the banner partial somewhere in the body element where you want it to be displayed:
-```html
-  <%= render 'cross_promotion_app/banner' %>
-```
 
-4. Check your .env file for the HOST_NAME key and add it if it's missing:
+2. Check your .env file for the HOST_NAME key and add it if it's missing:
 ```ruby
 HOST_NAME=<host_name>
 ```
