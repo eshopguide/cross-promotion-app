@@ -1,5 +1,3 @@
-<h1>asdasd</h1>
-
 <div class="cpa-form">
   <%= form_with(model: [:cross_promotion_app, @banner], url: url) do |form| %>
     <div class="cpa-form__group">
@@ -24,7 +22,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :video_id %>
-      <%= form.text_field :video_id, value: @banner.video_id, placeholder: t("views.#{action}.placeholders.video_id") %>
+      <%= form.text_field :video_id, value: @banner.video_id, placeholder: '9xwazD5SyVg' %>
       <% if @banner.errors[:video_id] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:video_id].first %>
@@ -34,7 +32,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :video_length %>
-      <%= form.number_field :video_length, value: @banner.video_length, placeholder: t("views.#{action}.placeholders.video_length") %>
+      <%= form.number_field :video_length, value: @banner.video_length, placeholder: 120 %>
       <% if @banner.errors[:video_length] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:video_length].first %>
@@ -44,7 +42,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :title_de %>
-      <%= form.text_field :title_de, value: @banner.title_de, placeholder: t("views.#{action}.placeholders.title_de") %>
+      <%= form.text_field :title_de, value: @banner.title_de %>
       <% if @banner.errors[:title_de] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:title_de].first %>
@@ -54,7 +52,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :title_en %>
-      <%= form.text_field :title_en, value: @banner.title_de, placeholder: t("views.#{action}.placeholders.title_en") %>
+      <%= form.text_field :title_en, value: @banner.title_de %>
       <% if @banner.errors[:title_en] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:title_en].first %>
@@ -64,7 +62,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :text_de %>
-      <%= form.text_field :text_de, value: @banner.text_de, placeholder: t("views.#{action}.placeholders.text_de") %>
+      <%= form.text_field :text_de, value: @banner.text_de %>
       <% if @banner.errors[:text_de] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:text_de].first %>
@@ -74,7 +72,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :text_en %>
-      <%= form.text_field :text_en, value: @banner.text_de, placeholder: t("views.#{action}.placeholders.text_en") %>
+      <%= form.text_field :text_en, value: @banner.text_de %>
       <% if @banner.errors[:text_en] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:text_en].first %>
@@ -84,7 +82,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :cta_url %>
-      <%= form.text_field :cta_url, value: @banner.cta_url, placeholder: t("views.#{action}.placeholders.cta_url") %>
+      <%= form.text_field :cta_url, value: @banner.cta_url, placeholder: t("views.#{action}.placeholders.link") %>
       <% if @banner.errors[:cta_url] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:cta_url].first %>
@@ -94,7 +92,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :cta_text_de %>
-      <%= form.text_field :cta_text_de, value: @banner.cta_text_de, placeholder: t("views.#{action}.placeholders.cta_text_de") %>
+      <%= form.text_field :cta_text_de, value: @banner.cta_text_de %>
       <% if @banner.errors[:cta_text_de] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:cta_text_de].first %>
@@ -104,7 +102,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :cta_text_en %>
-      <%= form.text_field :cta_text_en, value: @banner.cta_text_en, placeholder: t("views.#{action}.placeholders.cta_text_en") %>
+      <%= form.text_field :cta_text_en, value: @banner.cta_text_en %>
       <% if @banner.errors[:cta_text_en] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:cta_text_en].first %>
@@ -124,7 +122,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :link_text_de %>
-      <%= form.text_field :link_text_de, value: @banner.link_text_de, placeholder: t("views.#{action}.placeholders.link_text_de") %>
+      <%= form.text_field :link_text_de, value: @banner.link_text_de %>
       <% if @banner.errors[:link_text_de] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:link_text_de].first %>
@@ -134,7 +132,7 @@
 
     <div class="cpa-form__group">
       <%= form.label :link_text_en %>
-      <%= form.text_field :link_text_en, value: @banner.link_text_en, placeholder: t("views.#{action}.placeholders.link_text_en") %>
+      <%= form.text_field :link_text_en, value: @banner.link_text_en %>
       <% if @banner.errors[:link_text_en] %>
         <div class="cpa-form__error">
           <%= @banner.errors[:link_text_en].first %>
