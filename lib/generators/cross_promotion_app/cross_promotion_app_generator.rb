@@ -19,29 +19,15 @@ module CrossPromotionApp
       end
 
       def create_banner
-        copy_file('images/b2b_banner.png', 'app/assets/images/b2b_banner.png')
+        copy_file('images/test_banner.png', 'app/assets/images/test_banner.png')
         rake('cross_promotion_app:create_banner')
-        remove_file('app/assets/images/b2b_banner.png')
+        remove_file('app/assets/images/test_banner.png')
       end
 
-      def add_banner_to_authentication_controller
-        if File.exist?('app/controllers/authenticated_controller.rb')
-          inject_into_file('app/controllers/authenticated_controller.rb', after: 'include ShopifyApp::Authenticated') do
-            "\n  include CrossPromotionApp::FindBanner"
-          end
-        else
-          p '    Error: AuthenticatedController not found. Please include the following line manually to your controllers: include CrossPromotionApp::FindBanner' # rubocop:disable Layout/LineLength
-        end
-      end
-
-      def add_banner_to_layout
-        if File.readlines('app/views/layouts/embedded_app.html.erb').grep(/<div class="app-content">/).any?
-          inject_into_file('app/views/layouts/embedded_app.html.erb', after: '<div class="app-content">') do
-            "\n        <%= render 'cross_promotion_app/banner' %>"
-          end
-        else
-          p '    Error: Please add manually the following line to your layout: <%= render "cross_promotion_app/banner" %>' # rubocop:disable Layout/LineLength
-        end
+      def add_react_component
+        p 'You can now add the React component to your app by adding the following line:'
+        p 'import { CrossPromotionBanner } from \'cross-promotion-app\';'
+        p 'Don\'t forget to update your Vite config (see README for details)'
       end
 
       def add_basic_auth_credentials

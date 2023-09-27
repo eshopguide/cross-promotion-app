@@ -3,8 +3,19 @@ de:
     attributes:
       cross_promotion_app/banner:
         name: 'Bannerbezeichnung'
-        link: 'Link'
+        link: 'Weiterführender Link (optional)'
+        link_text_de: 'Link Text (DE) (optional)'
+        link_text_en: 'Link Text (EN) (optional)'
         image: 'Bild'
+        title_de: 'Banner Titel (DE)'
+        title_en: 'Banner Titel (EN)'
+        text_de: 'Banner Text (DE)'
+        text_en: 'Banner Text (EN)'
+        cta_url: 'CTA URL'
+        cta_text_de: 'CTA Text (DE)'
+        cta_text_en: 'CTA Text (EN)'
+        video_id: 'Video ID (YouTube) (optional)'
+        video_length: 'Videolänge (in Sekunden)'
     errors:
       models:
         messages:
@@ -43,7 +54,7 @@ de:
         name: 'Name'
         link: 'https://'
       labels:
-        image: 'Bild (Datei-Typ: PNG or SVG, Empfohlene Größe: 1140x100)'
+        image: 'Bild / Thumbnail (Datei-Typ: PNG or SVG, empfohlene Größe: 1000x667)'
       actions:
         submit: 'Banner hinzufügen'
         cancel: 'Abbrechen'
@@ -53,7 +64,7 @@ de:
         name: 'Name'
         link: 'https://'
       labels:
-        image: "Bild (aktuell: '%{filename}') (Datei-Typ: PNG or SVG, Empfohlene Größe: 1140x100)"
+        image: "Bild / Thumbnail (aktuell: '%{filename}') (Datei-Typ: PNG or SVG, empfohlene Größe: 1000x667)"
       actions:
         submit: 'Banner aktualisieren'
         cancel: 'Abbrechen'
