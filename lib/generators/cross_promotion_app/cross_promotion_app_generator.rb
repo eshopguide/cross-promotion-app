@@ -19,9 +19,9 @@ module CrossPromotionApp
       end
 
       def create_banner
-        copy_file('images/b2b_banner.png', 'app/assets/images/b2b_banner.png')
+        copy_file('images/test_banner.png', 'app/assets/images/test_banner.png')
         rake('cross_promotion_app:create_banner')
-        remove_file('app/assets/images/b2b_banner.png')
+        remove_file('app/assets/images/test_banner.png')
       end
 
       def add_react_component
