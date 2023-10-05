@@ -22,6 +22,11 @@ export default () => {
 
   // Fetch current active banner via API
   useEffect(() => {
+    try {
+      const dismissedSessionStorage = sessionStorage.getItem(sessionStorageKey);
+      setDismissed(dismissedSessionStorage === "dismissed");
+    } catch {}
+
     (async () => {
       const response = await fetch("/cross_promotion_app/api/banner");
       const responseBody = await response.json();
@@ -31,15 +36,14 @@ export default () => {
   }, []);
 
   const onDismiss = () => {
-    sessionStorage.setItem(sessionStorageKey, "dismissed");
+    try {
+      sessionStorage.setItem(sessionStorageKey, "dismissed");
+    } catch {}
+
     setDismissed(true);
   };
 
-  if (
-    sessionStorage.getItem(sessionStorageKey) !== "dismissed" &&
-    !dismissed &&
-    promotion
-  ) {
+  if (!dismissed && promotion) {
     return (
       <>
         <VideoModal
