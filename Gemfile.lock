@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cross_promotion_app (0.2.0)
+    cross_promotion_app (0.2.1)
       activestorage (~> 7.0)
       pg (~> 1.1)
       rails (~> 7.0)
