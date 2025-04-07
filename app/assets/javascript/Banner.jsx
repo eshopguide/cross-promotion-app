@@ -43,6 +43,11 @@ export default () => {
     setDismissed(true);
   };
 
+  const openLink = (link) => {
+    const target = link.startsWith("http") ? "_blank" : "_self";
+    window.open(link, target);
+  };
+
   if (!dismissed && promotion) {
     return (
       <>
@@ -63,12 +68,18 @@ export default () => {
             title={promotion[`title_${language}`]}
             primaryAction={{
               content: promotion[`cta_text_${language}`],
-              url: promotion.cta_url,
+              onAction: (e) => {
+                e.preventDefault();
+                openLink(promotion.cta_url);
+              },
             }}
             secondaryAction={
               promotion.link && {
                 content: promotion[`link_text_${language}`],
-                url: promotion.link,
+                onAction: (e) => {
+                  e.preventDefault();
+                  openLink(promotion.link);
+                },
               }
             }
             description={promotion[`text_${language}`]}
