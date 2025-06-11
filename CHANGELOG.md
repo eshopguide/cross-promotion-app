@@ -1,6 +1,6 @@
 ## [Unreleased]
 
-## [0.3.0] - 2025-01-06
+## [0.4.0] - 2025-06-11
 
 ### Changed
 - **BREAKING**: Migrated from Shopify App Bridge V3 to V4
