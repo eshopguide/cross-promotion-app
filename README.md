@@ -8,6 +8,7 @@ A Rails Gem to integrate Eshop Guide cross promotion banners to the admin interf
 * Make sure active storage is installed and configured. Run: ```rails active_storage:install```
   * Don't forget to set up the storage cloud service for the production environment in config/storage.yml and to set `config.active_storage.service` in the environment config
 * npm packages: `react, react-i18next, @shopify/app-bridge-react, @shopify/polaris`
+* **App Bridge V4 Compatible**: This gem uses Shopify App Bridge V4 hooks and patterns
 * NOTE: the app is designed to work with shopify apps that are build with the [shopify-rails-template](https://github.com/eshopguide/shopify_rails_template).
   For use in older apps see the [Special notes for legacy apps](#special-notes-for-legacy-apps) section.
 

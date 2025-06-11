@@ -1,4 +1,4 @@
-import { useLocale } from "@shopify/app-bridge-react";
+import { useAppBridge } from "@shopify/app-bridge-react";
 import {
   Box,
   Layout,
@@ -13,7 +13,8 @@ import { useTranslation } from "react-i18next";
 const sessionStorageKey = "crossPromotionBanner";
 
 export default () => {
-  const locale = useLocale();
+  const shopify = useAppBridge();
+  const locale = shopify?.config?.locale;
   const { t } = useTranslation();
   const [dismissed, setDismissed] = useState(false);
   const [promotion, setPromotion] = useState();
