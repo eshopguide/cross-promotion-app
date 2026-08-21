@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    cross_promotion_app (0.2.1)
-      activestorage (~> 7.0)
+    cross_promotion_app (0.4.0)
+      activestorage (>= 7.0, < 9)
       pg (~> 1.1)
-      rails (~> 7.0)
+      rails (>= 7.0, < 9)
       sprockets-rails (~> 3.4)
       turbo-rails (~> 1.1)
 
